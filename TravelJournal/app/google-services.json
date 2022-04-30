@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "705956748011",
+    "project_id": "traveljournal-2011b",
+    "storage_bucket": "traveljournal-2011b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:705956748011:android:367c60fda23fd1f6c87cae",
+        "android_client_info": {
+          "package_name": "com.android.traveljournal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "705956748011-pqp3jqt9rc3mrdf6t6f385tqrqg7hd7t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.android.traveljournal",
+            "certificate_hash": "f32bba9d2a9342a9d3937878620d2e1e73c2d276"
+          }
+        },
+        {
+          "client_id": "705956748011-6huq8ca4i98nh66n0mumg3tfv1ha1v6u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBnUdjE3qCb8nua1rdnoB2wZ_rFta6E3us"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "705956748011-6huq8ca4i98nh66n0mumg3tfv1ha1v6u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
