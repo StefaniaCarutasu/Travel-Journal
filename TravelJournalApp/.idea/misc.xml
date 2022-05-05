@@ -3,9 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/transfer/Facultate/Travel-Journal/TravelJournal/app/src/main/res/layout/activity_login.xml" value="0.264" />
-        <entry key="..\:/transfer/Facultate/Travel-Journal/TravelJournal/app/src/main/res/layout/activity_login2.xml" value="0.259375" />
-        <entry key="..\:/transfer/Facultate/Travel-Journal/TravelJournal/app/src/main/res/layout/activity_register.xml" value="0.259375" />
+        <entry key="..\:/transfer/Facultate/Travel-Journal/TravelJournalApp/app/src/main/res/layout/activity_login.xml" value="0.259375" />
+        <entry key="..\:/transfer/Facultate/Travel-Journal/TravelJournalApp/app/src/main/res/layout/activity_register.xml" value="0.259375" />
+        <entry key="..\:/transfer/Facultate/Travel-Journal/TravelJournalApp/app/src/main/res/layout/activity_signedin.xml" value="0.259375" />
       </map>
     </option>
   </component>
