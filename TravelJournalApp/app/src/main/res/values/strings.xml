@@ -5,10 +5,13 @@
     <string name="minimum_password">Password too short, enter minimum 6 characters!</string>
     <string name="auth_failed">Authentication failed, check your email and password or register</string>
     <string name="btn_login">LOGIN</string>
-    <string name="btn_link_to_register">Not a member? Create your account now!</string>
-    <string name="btn_link_to_login">Already registered! Let me login</string>
+    <string name="text_back_to_register">Not a member yet? Create your account now!</string>
+    <string name="btn_link_to_register">Back to registration</string>
+    <string name="btn_link_to_login">Go to login</string>
+    <string name="text_link_to_login">Already registered? Let\'s go to login!</string>
     <string name="btn_sign_out">Logout</string>
     <string name="name">Name</string>
     <string name="password">Password</string>
     <string name="username">Username</string>
+    <string name="server_client_id">YOUR_SERVER_CLIENT_ID</string>
 </resources>

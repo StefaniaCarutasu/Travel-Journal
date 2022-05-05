@@ -67,19 +67,31 @@
             android:textColor="@android:color/black"
             android:textStyle="bold" />
 
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/google_sign_in_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dip"/>
+
         <!-- Link to Login Screen -->
 
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dip"
+            android:text="@string/text_link_to_login" />
         <Button
             android:id="@+id/sign_in_button"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dip"
+            android:layout_marginTop="10dip"
             android:background="@null"
             android:onClick="onLoginClicked"
             android:text="@string/btn_link_to_login"
             android:textAllCaps="false"
             android:textColor="@color/black"
-            android:textSize="15dp" />
+            android:textSize="15sp" />
     </LinearLayout>
 
     <ProgressBar
