@@ -12,13 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TravelJournalApp">
         <activity
+            android:name=".ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EditProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".HomeActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="false" />
-        <activity
-            android:name=".SignedinActivity"
             android:exported="false" />
         <activity
             android:name=".LoginActivity"

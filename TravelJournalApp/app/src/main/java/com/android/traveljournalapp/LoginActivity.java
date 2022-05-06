@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -36,7 +37,7 @@ public class LoginActivity extends AppCompatActivity {
 
         // if it's already logged in, redirect to signed in screen
         if (mAuth.getCurrentUser() != null) {
-            startActivity(new Intent(this, SignedinActivity.class));
+            startActivity(new Intent(this, ProfileActivity.class));
             finish();
         }
     }
@@ -47,6 +48,12 @@ public class LoginActivity extends AppCompatActivity {
 
         if (TextUtils.isEmpty(email)) {
             Toast.makeText(getApplicationContext(), "Please enter an email address!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            inputEmail.setError("Please enter a valid email!");
+            inputEmail.requestFocus();
             return;
         }
 
@@ -65,7 +72,7 @@ public class LoginActivity extends AppCompatActivity {
                         progressBar.setVisibility(View.GONE);
                         if (task.isSuccessful()) {
                             // the login was a success and we redirect to the main activity
-                            startActivity(new Intent(LoginActivity.this, SignedinActivity.class));
+                            startActivity(new Intent(LoginActivity.this, ProfileActivity.class));
                             finish();
                         }
                         else {

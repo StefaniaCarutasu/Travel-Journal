@@ -58,7 +58,7 @@
         <Button
             android:id="@+id/sign_up_button"
             style="?android:textAppearanceSmall"
-            android:layout_width="match_parent"
+            android:layout_width="110dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:background="@color/colorAccent"
@@ -83,12 +83,12 @@
             android:text="@string/text_link_to_login" />
         <Button
             android:id="@+id/sign_in_button"
-            android:layout_width="fill_parent"
+            android:layout_width="110dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dip"
-            android:background="@null"
-            android:onClick="onLoginClicked"
+            android:background="@color/colorAccent"
             android:text="@string/btn_link_to_login"
+            android:onClick="onLoginClicked"
             android:textAllCaps="false"
             android:textColor="@color/black"
             android:textSize="15sp" />
