@@ -14,5 +14,8 @@
     <string name="password">Password</string>
     <string name="username">Username</string>
     <string name="bio">About you</string>
-    <string name="default_web_client_id">268174943807–5qdf4itjoidar6p94vp0s6sgnhij2bp5.apps.googleusercontent.com</string>
+    <string name="start_text">Wellcome to travel journal! Here you can keep track of your wonderful vacations!</string>
+    <string name="start_to_login">Log in to let your adventure begin!</string>
+    <string name="text_btn_go_to_login">Go to signup/login</string>
+<!--    <string name="default_web_client_id">268174943807–5qdf4itjoidar6p94vp0s6sgnhij2bp5.apps.googleusercontent.com</string>-->
 </resources>
