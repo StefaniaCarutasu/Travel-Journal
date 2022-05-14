@@ -47,6 +47,9 @@
             android:name=".StartActvity"
             android:exported="true" />
         <activity
+            android:name=".MainActivity"
+            android:exported="true" />
+        <activity
             android:name=".ShowMapActivity"
             android:exported="true" />
         <activity
