@@ -19,5 +19,6 @@
     <string name="text_btn_go_to_login">Go to signup/login</string>
     <string name="text_btn_show_map">Show map</string>
     <string name="title_activity_maps">MapsActivity</string>
+    <string name="text_btn_add_city_to_journal">Add city</string>
     <!--    <string name="default_web_client_id">268174943807–5qdf4itjoidar6p94vp0s6sgnhij2bp5.apps.googleusercontent.com</string>-->
 </resources>

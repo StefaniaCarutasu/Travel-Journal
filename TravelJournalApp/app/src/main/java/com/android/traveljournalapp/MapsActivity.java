@@ -16,11 +16,19 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.android.traveljournalapp.databinding.ActivityMapsBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
     private ActivityMapsBinding binding;
+
+    private FirebaseUser currentUser;
+    private DatabaseReference reference;
+    private FirebaseAuth mAuth;
+    private String userID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
