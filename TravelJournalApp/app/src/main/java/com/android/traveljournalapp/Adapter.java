@@ -1,6 +1,7 @@
 package com.android.traveljournalapp;
-
+import com.squareup.picasso.Picasso;
 import android.content.Context;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,13 +17,15 @@ import java.util.ArrayList;
 public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     ArrayList cityImg, cityName, cityDesc, cityFeedback, addedByUserId ;
     Context context;
+    private String imageUrl;
 
     // Constructor for initialization
-    public Adapter(Context context, ArrayList addedByUserId, ArrayList cityImg, ArrayList cityName, ArrayList cityDesc, ArrayList cityFeedback) {
+    public Adapter(Context context, /*ArrayList addedByUserId,*/ ArrayList cityImg, ArrayList cityName, ArrayList cityDesc, ArrayList cityFeedback) {
         this.context = context;
-        this.addedByUserId=addedByUserId;
+        //this.addedByUserId=addedByUserId;
         this.cityImg=cityImg;
         this.cityName=cityName;
+        this.cityDesc=cityDesc;
         this.cityFeedback=cityFeedback;
     }
 
@@ -42,12 +45,18 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull Adapter.ViewHolder holder, int position) {
         // TypeCast Object to int type
-        int res = (int) cityImg.get(position);
+
+       /* String res = (String) cityImg.get(position);
         holder.images.setImageResource(res);
+*/
+        //imageUrl=(String) cityImg.get(position);
+        //Picasso.with(context).load(imageUrl).into(holder.images);
+        holder.images.setImageURI((Uri) cityImg.get(position));
         holder.text1.setText((String) cityName.get(position));
         holder.text2.setText((String) cityDesc.get(position));
         holder.text3.setText((String) cityFeedback.get(position));
     }
+
 
     @Override
     public int getItemCount() {

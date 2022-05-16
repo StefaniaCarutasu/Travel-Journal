@@ -1,16 +1,23 @@
 package com.android.traveljournalapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.SoundEffectConstants;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class TravelItemsActivity extends AppCompatActivity {
 
@@ -27,10 +34,21 @@ public class TravelItemsActivity extends AppCompatActivity {
     // the activity result code
     int SELECT_PICTURE = 200;
 
+    RecyclerView recyclerView;
+    private FirebaseUser currentUser;
+    static String currentUserId;
+    private DatabaseReference reference;
+    private FirebaseAuth mAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_travel_items);
+
+        currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        reference = FirebaseDatabase.getInstance().getReference("Users");
+        mAuth = FirebaseAuth.getInstance();
+        currentUserId = currentUser.getUid();
 
         // register editText with instance
         input_city_name = (EditText) findViewById(R.id.input_city_name);
@@ -82,13 +100,14 @@ public class TravelItemsActivity extends AppCompatActivity {
                             }
                         }
                         if (ok==1){
-                            MainActivity.addItem(selectedImageUri,entered_city_name,entered_city_description, entered_city_feedback);
-                            System.out.println("e ok");
+                            MainActivity.addItem(selectedImageUri,/* currentUserId*/ entered_city_name,entered_city_description, entered_city_feedback);
+                           // System.out.println(MainActivity.addedByUserId);
+                            System.out.println(MainActivity.cityName);
+                            System.out.println(MainActivity.cityDesc);
+                            System.out.println(MainActivity.cityFeedback);
+
 
                         }
-
-
-
                     }
                 });
 

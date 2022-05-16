@@ -57,7 +57,7 @@ public class ProfileActivity extends AppCompatActivity {
         final TextView userName = (TextView) findViewById(R.id.username);
         final TextView bio = (TextView) findViewById(R.id.bio);
 
-        reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
+        /*reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
@@ -67,7 +67,7 @@ public class ProfileActivity extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
-        });
+        });*/
 
         // Initialize and assign variable
         BottomNavigationView bottomNavigationView=findViewById(R.id.bottom_navigation);

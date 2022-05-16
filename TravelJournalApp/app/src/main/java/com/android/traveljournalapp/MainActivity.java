@@ -31,16 +31,11 @@ import com.google.firebase.database.ValueEventListener;
 public class MainActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
-    private FirebaseUser currentUser;
-    static String currentUserId;
-    private DatabaseReference reference;
-    private FirebaseAuth mAuth;
-
     Uri photoUri;
 
 
     // Using ArrayList to store images data
-    public static ArrayList addedByUserId = new ArrayList<>(Arrays.asList());
+   // public static ArrayList addedByUserId = new ArrayList<>(Arrays.asList());
     public static ArrayList cityImg = new ArrayList<>(Arrays.asList());
     public static ArrayList cityName = new ArrayList<>(Arrays.asList());
     public static ArrayList cityDesc=new ArrayList<>(Arrays.asList());
@@ -52,10 +47,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        currentUser = FirebaseAuth.getInstance().getCurrentUser();
-        reference = FirebaseDatabase.getInstance().getReference("Users");
-        mAuth = FirebaseAuth.getInstance();
-        currentUserId = currentUser.getUid();
 
         //------------recycler viewer ----------------
 
@@ -66,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(linearLayoutManager);
         // Sending reference and data to Adapter
-        Adapter adapter = new Adapter(MainActivity.this,addedByUserId, cityImg, cityName, cityDesc, cityFeedback);
+        Adapter adapter = new Adapter(MainActivity.this, /*addedByUserId,*/ cityImg, cityName, cityDesc, cityFeedback);
         // Setting Adapter to RecyclerView
         recyclerView.setAdapter(adapter);
 
@@ -104,9 +95,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public static void addItem(Uri photoUri, String cityNameData, String cityDescriptionData, String cityFeedbackData)
+    public static void addItem(Uri photoUri,/*String currentUserId*/ String cityNameData, String cityDescriptionData, String cityFeedbackData)
     {
-        addedByUserId.add(currentUserId);
+        //addedByUserId.add(currentUserId);
         cityImg.add(photoUri);
         cityName.add(cityNameData);
         cityDesc.add(cityDescriptionData);
