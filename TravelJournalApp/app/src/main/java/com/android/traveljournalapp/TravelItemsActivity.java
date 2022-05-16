@@ -16,7 +16,7 @@ public class TravelItemsActivity extends AppCompatActivity {
 
     EditText input_city_name, input_city_description, input_city_feedback;
     Button submitButton;
-
+    Uri selectedImageUri;
     // One Button
     Button BSelectImage;
 
@@ -44,46 +44,54 @@ public class TravelItemsActivity extends AppCompatActivity {
         submitButton.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
-                    public void onClick(View view) {
-
-                        // get the data with the
-                        // "editText.text.toString()"
+                    public void onClick(View view)
+                    {
+                        int ok=0;
                         String entered_city_name = input_city_name.getText().toString();
-                        // check whether the retrieved data is
-                        // empty or not based on the emptiness
-                        // provide the Toast Message
-                        if (entered_city_name.isEmpty()) {
-                            Toast.makeText(getApplicationContext(), "Please Enter the Data", Toast.LENGTH_SHORT).show();
-                        } else {
-                            Toast.makeText(getApplicationContext(), entered_city_name, Toast.LENGTH_SHORT).show();
-                        }
-
-                        // get the data with the
-                        // "editText.text.toString()"
                         String entered_city_description = input_city_description.getText().toString();
-                        // check whether the retrieved data is
-                        // empty or not based on the emptiness
-                        // provide the Toast Message
-                        if (entered_city_name.isEmpty()) {
-                            Toast.makeText(getApplicationContext(), "Please Enter the Data", Toast.LENGTH_SHORT).show();
-                        } else {
-                            Toast.makeText(getApplicationContext(), entered_city_description, Toast.LENGTH_SHORT).show();
+                        String entered_city_feedback = input_city_feedback.getText().toString();
+
+                        if (entered_city_name.isEmpty())
+                        {
+                            Toast.makeText(getApplicationContext(), "Please Enter City Name", Toast.LENGTH_SHORT).show();
+                        }
+                        else
+                        {
+                            if (entered_city_description.isEmpty())
+                            {
+                                Toast.makeText(getApplicationContext(), "Please Enter City Description", Toast.LENGTH_SHORT).show();
+                            }
+                            else
+                            {
+                                if (entered_city_feedback.isEmpty())
+                                {
+                                    Toast.makeText(getApplicationContext(), "Please Enter City Feedback", Toast.LENGTH_SHORT).show();
+                                }
+                                else
+                                {
+                                    if(selectedImageUri == null)
+                                    {
+                                        Toast.makeText(getApplicationContext(), "Please add a picture", Toast.LENGTH_SHORT).show();
+                                    }
+                                    else
+                                    {
+                                        ok=1;
+
+                                    }
+                                }
+                            }
+                        }
+                        if (ok==1){
+                            MainActivity.addItem(selectedImageUri,entered_city_name,entered_city_description, entered_city_feedback);
+                            System.out.println("e ok");
+
                         }
 
-                        // get the data with the
-                        // "editText.text.toString()"
-                        String entered_city_feedback = input_city_feedback.getText().toString();
-                        // check whether the retrieved data is
-                        // empty or not based on the emptiness
-                        // provide the Toast Message
-                        if (entered_city_name.isEmpty()) {
-                            Toast.makeText(getApplicationContext(), "Please Enter the Data", Toast.LENGTH_SHORT).show();
-                        } else {
-                            Toast.makeText(getApplicationContext(), entered_city_feedback, Toast.LENGTH_SHORT).show();
-                        }
+
 
                     }
                 });
+
 
         // register the UI widgets with their appropriate IDs
         BSelectImage = findViewById(R.id.BSelectImage);
@@ -124,13 +132,17 @@ public class TravelItemsActivity extends AppCompatActivity {
             // SELECT_PICTURE constant
             if (requestCode == SELECT_PICTURE) {
                 // Get the url of the image from data
-                Uri selectedImageUri = data.getData();
+                selectedImageUri = data.getData();
                 if (null != selectedImageUri) {
                     // update the preview image in the layout
                     IVPreviewImage.setImageURI(selectedImageUri);
                 }
             }
         }
+    }
+
+    public void goToListBtnClicked(View view) {
+        startActivity(new Intent(this, MainActivity.class));
     }
 }
 

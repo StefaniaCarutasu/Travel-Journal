@@ -22,7 +22,8 @@
             android:maxLines="1"
             android:singleLine="true"
             android:textColor="@android:color/black"
-            android:textColorHint="@android:color/black"/>
+            android:textColorHint="@android:color/black"
+            android:backgroundTint="@color/purple_500"/>
 
         <EditText
             android:id="@+id/input_city_description"
@@ -32,7 +33,8 @@
             android:hint="City Description:"
             android:singleLine="true"
             android:textColor="@android:color/black"
-            android:textColorHint="@android:color/black" />
+            android:textColorHint="@android:color/black"
+            android:backgroundTint="@color/purple_500"/>
 
         <EditText
             android:id="@+id/input_city_feedback"
@@ -42,7 +44,8 @@
             android:hint="City Feedback:"
             android:singleLine="true"
             android:textColor="@android:color/black"
-            android:textColorHint="@android:color/black" />
+            android:textColorHint="@android:color/black"
+            android:backgroundTint="@color/purple_500"/>
         <Button
             android:id="@+id/BSelectImage"
             android:layout_width="wrap_content"
@@ -86,6 +89,20 @@
             android:textColor="@color/purple_500"
             app:layout_constraintEnd_toStartOf="@+id/button"
             app:layout_constraintTop_toBottomOf="@+id/editText" />
+        <Button
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:id="@+id/go_to_list_Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:backgroundTint="@color/purple_500"
+            android:text="Go to list"
+            android:onClick="goToListBtnClicked"
+            android:textColor="@color/purple_500"
+            app:layout_constraintEnd_toStartOf="@+id/button"
+            app:layout_constraintTop_toBottomOf="@+id/editText" />
+
 
 
     </LinearLayout>

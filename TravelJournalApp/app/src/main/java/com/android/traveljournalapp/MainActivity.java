@@ -2,6 +2,8 @@ package com.android.traveljournalapp;
 import java.io.*;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.annotation.NonNull;
+
+import android.net.Uri;
 import android.os.Bundle;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
@@ -30,17 +32,20 @@ public class MainActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     private FirebaseUser currentUser;
-    String currentUserId;
+    static String currentUserId;
     private DatabaseReference reference;
     private FirebaseAuth mAuth;
 
+    Uri photoUri;
+
 
     // Using ArrayList to store images data
-    ArrayList addedByUserId = new ArrayList<>(Arrays.asList());
-    ArrayList cityImg = new ArrayList<>(Arrays.asList());
-    ArrayList cityName = new ArrayList<>(Arrays.asList());
-    ArrayList cityDesc=new ArrayList<>(Arrays.asList());
-    ArrayList cityFeedback=new ArrayList<>(Arrays.asList());
+    public static ArrayList addedByUserId = new ArrayList<>(Arrays.asList());
+    public static ArrayList cityImg = new ArrayList<>(Arrays.asList());
+    public static ArrayList cityName = new ArrayList<>(Arrays.asList());
+    public static ArrayList cityDesc=new ArrayList<>(Arrays.asList());
+    public static ArrayList cityFeedback=new ArrayList<>(Arrays.asList());
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,9 +104,20 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public static void addItem(Uri photoUri, String cityNameData, String cityDescriptionData, String cityFeedbackData)
+    {
+        addedByUserId.add(currentUserId);
+        cityImg.add(photoUri);
+        cityName.add(cityNameData);
+        cityDesc.add(cityDescriptionData);
+        cityFeedback.add(cityFeedbackData);
+    }
+
     public void addCityBtnClicked(View view) {
         startActivity(new Intent(this, TravelItemsActivity.class));
     }
-}
 
+
+
+}
 
