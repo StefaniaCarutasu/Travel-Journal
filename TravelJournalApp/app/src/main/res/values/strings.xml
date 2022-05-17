@@ -26,8 +26,8 @@
     <string name="facebook_client_token">56789</string>
     <string name="btn_submit_changes">Submit</string>
     <string name="Edit">Edit</string>
-    <string name="old_username">%s</string>
-    <string name="old_bio">%s</string>
+    <string name="old_username">New username</string>
+    <string name="old_bio">New bio</string>
     <string name="btn_cancel">Cancel</string>
     <string name="Share">Share</string>
 
