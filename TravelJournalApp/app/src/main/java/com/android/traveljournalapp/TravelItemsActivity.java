@@ -45,10 +45,10 @@ public class TravelItemsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_travel_items);
 
-        currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        /*currentUser = FirebaseAuth.getInstance().getCurrentUser();
         reference = FirebaseDatabase.getInstance().getReference("Users");
         mAuth = FirebaseAuth.getInstance();
-        currentUserId = currentUser.getUid();
+        currentUserId = currentUser.getUid();*/
 
         // register editText with instance
         input_city_name = (EditText) findViewById(R.id.input_city_name);
@@ -64,7 +64,6 @@ public class TravelItemsActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View view)
                     {
-                        int ok=0;
                         String entered_city_name = input_city_name.getText().toString();
                         String entered_city_description = input_city_description.getText().toString();
                         String entered_city_feedback = input_city_feedback.getText().toString();
@@ -87,43 +86,27 @@ public class TravelItemsActivity extends AppCompatActivity {
                                 }
                                 else
                                 {
-                                    if(selectedImageUri == null)
-                                    {
-                                        Toast.makeText(getApplicationContext(), "Please add a picture", Toast.LENGTH_SHORT).show();
-                                    }
-                                    else
-                                    {
-                                        ok=1;
+                                    MainActivity.addToList(entered_city_name,entered_city_description,entered_city_feedback);
 
-                                    }
                                 }
                             }
-                        }
-                        if (ok==1){
-                            MainActivity.addItem(selectedImageUri,/* currentUserId*/ entered_city_name,entered_city_description, entered_city_feedback);
-                           // System.out.println(MainActivity.addedByUserId);
-                            System.out.println(MainActivity.cityName);
-                            System.out.println(MainActivity.cityDesc);
-                            System.out.println(MainActivity.cityFeedback);
-
-
                         }
                     }
                 });
 
 
         // register the UI widgets with their appropriate IDs
-        BSelectImage = findViewById(R.id.BSelectImage);
-        IVPreviewImage = findViewById(R.id.IVPreviewImage);
-
-        // handle the Choose Image button to trigger
-        // the image chooser function
-        BSelectImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                imageChooser();
-            }
-        });
+//        BSelectImage = findViewById(R.id.BSelectImage);
+//        IVPreviewImage = findViewById(R.id.IVPreviewImage);
+//
+//        // handle the Choose Image button to trigger
+//        // the image chooser function
+//        BSelectImage.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                imageChooser();
+//            }
+//        });
     }
     // this function is triggered when
     // the Select Image Button is clicked

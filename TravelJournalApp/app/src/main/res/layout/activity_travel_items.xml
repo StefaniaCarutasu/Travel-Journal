@@ -46,7 +46,7 @@
             android:textColor="@android:color/black"
             android:textColorHint="@android:color/black"
             android:backgroundTint="@color/purple_500"/>
-        <Button
+       <!-- <Button
             android:id="@+id/BSelectImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -57,7 +57,7 @@
             android:textColor="@android:color/white"
             android:textSize="18sp" />
 
-        <!--ImageView to preview the selected image-->
+        &lt;!&ndash;ImageView to preview the selected image&ndash;&gt;
         <ImageView
             android:id="@+id/IVPreviewImage"
             android:layout_width="144dp"
@@ -65,7 +65,7 @@
             android:layout_below="@id/BSelectImage"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp" />
+            android:layout_marginEnd="16dp" />-->
 
         <Button
             android:id="@+id/submitButton"
@@ -78,7 +78,7 @@
             app:layout_constraintEnd_toEndOf="@+id/editText"
             app:layout_constraintTop_toBottomOf="@+id/editText" />
 
-        <Button
+        <!--<Button
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -88,9 +88,8 @@
             android:text="CANCEL"
             android:textColor="@color/purple_500"
             app:layout_constraintEnd_toStartOf="@+id/button"
-            app:layout_constraintTop_toBottomOf="@+id/editText" />
+            app:layout_constraintTop_toBottomOf="@+id/editText" />-->
         <Button
-            style="@style/Widget.AppCompat.Button.Borderless"
             android:id="@+id/go_to_list_Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -99,7 +98,7 @@
             android:backgroundTint="@color/purple_500"
             android:text="Go to list"
             android:onClick="goToListBtnClicked"
-            android:textColor="@color/purple_500"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toStartOf="@+id/button"
             app:layout_constraintTop_toBottomOf="@+id/editText" />
 
