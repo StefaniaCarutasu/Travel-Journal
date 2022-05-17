@@ -43,6 +43,7 @@ import com.google.firebase.database.FirebaseDatabase;
 // facebook login
 import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
+import com.google.firebase.messaging.FirebaseMessagingService;
 
 
 public class RegisterActivity extends AppCompatActivity {
@@ -77,12 +78,15 @@ public class RegisterActivity extends AppCompatActivity {
 
         // if it's already logged in, redirect to signed in screen
         if (mAuth.getCurrentUser() != null) {
-            System.out.println("E DEJA BOSS");
             startActivity(new Intent(this, ProfileActivity.class));
             finish();
         }
 
         initializeGoogleSignIn();
+
+        Intent intentBackgroundService = new Intent(this, FirebasePushNotifications.class);
+
+        startService(intentBackgroundService);
     }
 
     private void initializeGoogleSignIn() {
