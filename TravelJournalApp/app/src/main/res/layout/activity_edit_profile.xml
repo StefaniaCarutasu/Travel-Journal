@@ -32,14 +32,14 @@
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="@string/username"
+            android:hint="@string/old_username"
             android:inputType="textPersonName"
             android:minHeight="48dp"
             android:layout_marginTop="90dip"
             android:textColor="@android:color/black"
             android:textColorHint="@android:color/black" />
 
-        <EditText
+        <!--<EditText
             android:id="@+id/email"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
@@ -50,13 +50,13 @@
             android:singleLine="true"
             android:textColor="@android:color/black"
             android:textColorHint="@android:color/black" />
-
+-->
         <EditText
             android:id="@+id/bio"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:focusableInTouchMode="true"
-            android:hint="@string/bio"
+            android:hint="@string/old_bio"
             android:imeOptions="actionUnspecified"
             android:inputType="text"
             android:maxLines="1"
@@ -65,6 +65,33 @@
             android:textColor="@android:color/black"
             android:textColorHint="@android:color/black" />
 
+        <Button
+            android:id="@+id/submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
+            android:background="@color/colorAccent"
+            android:text="@string/btn_submit_changes"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bio"
+            tools:layout_editor_absoluteX="148dp"
+            tools:layout_editor_absoluteY="283dp" />
+
+        <Button
+            android:id="@+id/cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@color/colorAccent"
+            android:text="@string/btn_cancel"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cancel"
+            tools:layout_editor_absoluteX="148dp"
+            tools:layout_editor_absoluteY="283dp" />
 
 
     </LinearLayout>

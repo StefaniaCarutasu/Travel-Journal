@@ -28,6 +28,7 @@ import com.google.firebase.database.ValueEventListener;
 public class ProfileActivity extends AppCompatActivity {
 
     private Button logout;
+    private Button toEdit;
 
     private FirebaseUser currentUser;
 
@@ -44,6 +45,14 @@ public class ProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
 
         logout = (Button) findViewById(R.id.logout);
+        toEdit = (Button) findViewById(R.id.toEdit);
+
+        toEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(ProfileActivity.this, EditProfileActivity.class));
+            }
+        });
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,22 +96,6 @@ public class ProfileActivity extends AppCompatActivity {
                 System.out.println("The read failed: " + databaseError.getCode());
             }
         });
-
-       /* databaseReference.child("Users").child(userID).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DataSnapshot> task) {
-                if (!task.isSuccessful()) {
-                    Log.e("firebase", "Error getting data", task.getException());
-                }
-                else {
-                    Log.d("firebase", String.valueOf(task.getResult().getValue()));
-                    *//*System.out.println("AICI");
-                    System.out.println(task.getResult().getChildren());*//*
-                    //((TextView) findViewById(R.id.username_displayed)).setText(task.getResult().getValue());
-                }
-            }
-        });*/
-
 
 
         // Initialize and assign variable

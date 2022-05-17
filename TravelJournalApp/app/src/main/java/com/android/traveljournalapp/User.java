@@ -14,9 +14,13 @@ public class User {
         this.bio = DEFAULT_BIO;
     }
 
+    public User(String username, String email, String bio) {
+        this.username = username;
+        this.email = email;
+        this.bio = bio;
+    }
 
-
-    /*public User(String email)  {
+/*public User(String email)  {
         this.email = email;
     }*/
 }
