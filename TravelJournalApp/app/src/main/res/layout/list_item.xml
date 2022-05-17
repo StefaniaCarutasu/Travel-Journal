@@ -3,44 +3,41 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal" >
+    android:orientation="vertical"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginBottom="10dp"
+    android:layout_marginTop="10dp"
+    android:background="@drawable/customborder">
 
     <!--For image src we have used ic_launcher
         and for text "courseName" they are used
         only for reference how it will looks"-->
-    <ImageView
-        android:id="@+id/cityImg"
-        android:layout_width="144dp"
-        android:layout_height="144dp"
-        android:padding="16dp"
-        android:src="@mipmap/ic_launcher_round" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_gravity="center">
         <TextView
             android:id="@+id/cityName"
             android:text="cityName"
             android:textStyle="bold"
             android:textColor="@color/black"
+            android:layout_gravity="center"
+            android:textSize="18dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <TextView
             android:id="@+id/cityDesc"
             android:text="cityDesc"
-            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:textSize="16dp"
             android:textColor="@color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <TextView
             android:id="@+id/cityFeedback"
             android:text="cityFeedback"
-            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:textSize="16dp"
             android:textColor="@color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
-    </LinearLayout>
 
 </LinearLayout>
