@@ -1,20 +1,28 @@
 package com.android.traveljournalapp;
 import java.io.*;
+
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.annotation.NonNull;
 
 import android.net.Uri;
 import android.os.Bundle;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.FirebaseDatabase;
 
 import android.content.Intent;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -24,6 +32,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.SortedMap;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -31,6 +40,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import android.view.Menu;
@@ -58,27 +68,29 @@ public class MainActivity extends AppCompatActivity {
     public static ArrayList<ItemModal> itemModalArrayList=new ArrayList<ItemModal>();
    // itemModalArrayList = new ArrayList<ItemModal>();
 
+    private FirebaseUser currentUser;
+
+    private FirebaseAuth mAuth;
+
+    private String userID;
+
+    private FirebaseDatabase firebaseDatabase;
+    private static DatabaseReference databaseReference;
+
+    private static boolean hasChanged = true;
+
+    ListView listView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // itemModalArrayList.clear();
+
         //createArrayLists();
         itemRV=findViewById(R.id.recyclerView);
-        buildRecyclerView();
-
-        /*//------------recycler viewer ----------------
-
-        // Getting reference of recyclerView
-        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-        // Setting the layout as linear
-        // layout for vertical orientation
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
-        recyclerView.setLayoutManager(linearLayoutManager);
-        // Sending reference and data to Adapter
-        Adapter adapter = new Adapter(MainActivity.this, *//*addedByUserId,*//* cityImg, cityName, cityDesc, cityFeedback);
-        // Setting Adapter to RecyclerView
-        recyclerView.setAdapter(adapter);*/
+        // buildRecyclerView();
 
 
         //------------bottom nav bar ----------------
@@ -112,33 +124,27 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-    }
+        // Lista locatii vizitate
 
-    /*void createArrayLists()
-    {
-        if (cityName.isEmpty())
-        {
-            // Using ArrayList to store images data
-            // public static ArrayList addedByUserId = new ArrayList<>(Arrays.asList());
-            ArrayList cityImg = new ArrayList<>(Arrays.asList());
-            ArrayList cityName = new ArrayList<>(Arrays.asList());
-            ArrayList cityDesc=new ArrayList<>(Arrays.asList());
-            ArrayList cityFeedback=new ArrayList<>(Arrays.asList());
+        mAuth = FirebaseAuth.getInstance();
+
+        currentUser = mAuth.getCurrentUser();
+
+        userID = currentUser.getUid();
+
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference("Users_Locations/" + userID);
+
+        if (hasChanged) {
+            itemModalArrayList.clear();
+            retrieveFromFirebase();
+            hasChanged = !hasChanged;
         }
-    }*/
 
+        buildRecyclerView(itemModalArrayList);
 
-
-
-   /* public static void addItem(Uri photoUri,*//*String currentUserId*//* String cityNameData, String cityDescriptionData, String cityFeedbackData)
-    {
-        //addedByUserId.add(currentUserId);
-        cityImg.add(photoUri);
-        cityName.add(cityNameData);
-        cityDesc.add(cityDescriptionData);
-        cityFeedback.add(cityFeedbackData);
     }
-*/
+
 
     // calling on create option menu
     // layout to inflate our menu file.
@@ -197,10 +203,7 @@ public class MainActivity extends AppCompatActivity {
             itemAdapter.filterList(filteredlist);
         }
     }
-    private void buildRecyclerView() {
-
-
-
+    private void buildRecyclerView(ArrayList<ItemModal> itemModalArrayList) {
         // initializing our adapter class.
         itemAdapter = new Adapter(itemModalArrayList, MainActivity.this);
 
@@ -213,16 +216,76 @@ public class MainActivity extends AppCompatActivity {
         // setting adapter to
         // our recycler view.
         itemRV.setAdapter(itemAdapter);
+
+    }
+
+    private static void retrieveFromFirebase() {
+        databaseReference.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                itemModalArrayList.add(snapshot.getValue(ItemModal.class));
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+                System.out.println("Removed");
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                ItemModal itemModalArrayList = snapshot.getValue(ItemModal.class);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("The read failed: " + databaseError.getCode());
+            }
+        });
     }
 
     public static void addToList(String name, String desc, String feedback)
     {
-        itemModalArrayList.add(new ItemModal(name, desc, feedback));
+        retrieveFromFirebase();
+        ItemModal newLocation = new ItemModal(name, desc, feedback);
+        itemModalArrayList.add(newLocation);
+
+        // obiectul e ItemModal
+
+        addToFirebase(itemModalArrayList);
+    }
+
+    private static void addToFirebase(ArrayList<ItemModal> itemModal) {
+
+        FirebaseDatabase.getInstance().getReference("Users_Locations")
+                .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                .setValue(itemModal).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()) {
+                    System.out.println("We good");
+                    hasChanged = !hasChanged;
+                }
+            }
+        });
+
+        if (hasChanged) {
+            itemModalArrayList.clear();
+            retrieveFromFirebase();
+            hasChanged = !hasChanged;
+        }
+
     }
 
     public void addCityBtnClicked(View view) {
         startActivity(new Intent(this, TravelItemsActivity.class));
     }
+
+
 
 
 }

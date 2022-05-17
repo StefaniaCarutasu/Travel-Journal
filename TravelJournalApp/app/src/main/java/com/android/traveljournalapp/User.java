@@ -14,7 +14,9 @@ public class User {
         this.bio = DEFAULT_BIO;
     }
 
-    public User(String email)  {
+
+
+    /*public User(String email)  {
         this.email = email;
-    }
+    }*/
 }

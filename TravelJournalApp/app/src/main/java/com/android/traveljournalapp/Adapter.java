@@ -20,16 +20,6 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     Context context;
     private String imageUrl;
 
-    // Constructor for initialization
-   /* public Adapter(Context context, *//*ArrayList addedByUserId,*//* ArrayList cityImg, ArrayList cityName, ArrayList cityDesc, ArrayList cityFeedback) {
-        this.context = context;
-        //this.addedByUserId=addedByUserId;
-        this.cityImg=cityImg;
-        this.cityName=cityName;
-        this.cityDesc=cityDesc;
-        this.cityFeedback=cityFeedback;
-    }*/
-
     // creating a constructor for our variables.
     public Adapter(ArrayList<ItemModal> itemModalArrayList, Context context) {
         this.itemModalArrayList = itemModalArrayList;
@@ -46,18 +36,6 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         notifyDataSetChanged();
     }
 
-//    @NonNull
-//    @Override
-    /*public Adapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        // Inflating the Layout(Instantiates list_item.xml
-        // layout file into View object)
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item, parent, false);
-
-        // Passing view to ViewHolder
-        Adapter.ViewHolder viewHolder = new Adapter.ViewHolder(view);
-        return viewHolder;
-    }*/
-
     @NonNull
     @Override
     public Adapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -65,22 +43,6 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item, parent, false);
         return new ViewHolder(view);
     }
-
-    // Binding data to the into specified position
-   /* @Override
-    public void onBindViewHolder(@NonNull Adapter.ViewHolder holder, int position) {
-        // TypeCast Object to int type
-
-       *//* String res = (String) cityImg.get(position);
-        holder.images.setImageResource(res);
-*//*
-        //imageUrl=(String) cityImg.get(position);
-        //Picasso.with(context).load(imageUrl).into(holder.images);
-        holder.images.setImageURI((Uri) cityImg.get(position));
-        holder.text1.setText((String) cityName.get(position));
-        holder.text2.setText((String) cityDesc.get(position));
-        holder.text3.setText((String) cityFeedback.get(position));
-    }*/
 
     @Override
     public void onBindViewHolder(@NonNull Adapter.ViewHolder holder, int position) {

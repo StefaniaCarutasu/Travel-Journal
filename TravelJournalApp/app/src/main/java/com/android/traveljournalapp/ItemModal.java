@@ -14,6 +14,9 @@ public class ItemModal {
     // creating constructor for our variables.
 
 
+    public ItemModal() {
+    }
+
     public ItemModal(String cityName, String cityDescription, String cityFeedback) {
         this.cityName = cityName;
         this.cityDescription=cityDescription;
