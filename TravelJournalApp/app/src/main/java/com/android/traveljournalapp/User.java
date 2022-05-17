@@ -10,4 +10,8 @@ public class User {
         this.username = username;
         this.email = email;
     }
+
+    public User(String email)  {
+        this.email = email;
+    }
 }
