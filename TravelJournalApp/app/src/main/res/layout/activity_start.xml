@@ -10,7 +10,7 @@
         android:id="@+id/linearLayout4"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/colorPrimary"
+        android:background="@color/white"
         android:gravity="center"
         android:orientation="vertical"
         android:padding="@dimen/activity_horizontal_margin"
@@ -21,6 +21,17 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
 
+
+        <ImageView
+            android:id="@+id/plane"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_centerHorizontal="false"
+            android:layout_centerVertical="false"
+            android:layout_gravity="start"
+            android:layout_marginTop="15dip"
+            android:layout_marginBottom="15dip"/>
+
         <ImageView
             android:id="@+id/sunset_photo"
             android:layout_width="match_parent"
@@ -30,6 +41,7 @@
             android:layout_marginTop="15dip"
             android:layout_marginBottom="15dip"/>
 
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -37,9 +49,10 @@
             android:textAlignment="center"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
+            android:textColor="@color/black"
             android:layout_marginTop="15dip"
             android:layout_marginBottom="15dip"
-            android:text="@string/start_text" />
+            android:text="@string/start_text"/>
 
         <Button
             android:id="@+id/btn_go_to_login"
