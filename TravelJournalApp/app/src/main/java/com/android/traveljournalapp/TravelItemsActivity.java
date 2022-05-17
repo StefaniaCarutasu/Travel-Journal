@@ -1,5 +1,6 @@
 package com.android.traveljournalapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -14,6 +15,8 @@ import android.widget.ImageView;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -146,6 +149,8 @@ public class TravelItemsActivity extends AppCompatActivity {
     public void goToListBtnClicked(View view) {
         startActivity(new Intent(this, MainActivity.class));
     }
+
+
 }
 
 
