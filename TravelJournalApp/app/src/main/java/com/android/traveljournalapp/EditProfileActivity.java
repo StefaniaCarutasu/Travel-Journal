@@ -7,6 +7,7 @@ import androidx.core.content.ContextCompat;
 
 import android.Manifest;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
@@ -37,6 +38,8 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 public class EditProfileActivity extends AppCompatActivity {
 
@@ -67,6 +70,7 @@ public class EditProfileActivity extends AppCompatActivity {
     private Button takePicture;
 
     public static final int RequestPermissionCode = 1;
+    public static final int USE_CAMERA_RESPONSE_CODE = 101;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -154,6 +158,7 @@ public class EditProfileActivity extends AppCompatActivity {
 
     }
 
+
     private void uploadImage() {
 
         String fileName = FirebaseAuth.getInstance().getCurrentUser().getUid();
@@ -205,12 +210,10 @@ public class EditProfileActivity extends AppCompatActivity {
 
     public void takeImage(){
 
-            Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-            startActivityForResult(cameraIntent, 101);
-            //zuploadImage();
+        Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+        startActivityForResult(cameraIntent, USE_CAMERA_RESPONSE_CODE);
 
     }
-
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -222,12 +225,16 @@ public class EditProfileActivity extends AppCompatActivity {
             profilePicture.setImageURI(imageUri);
 
         }
+        else if (requestCode == USE_CAMERA_RESPONSE_CODE){
 
-        if (requestCode == 101 && data != null && data.getData() != null){
+            Bitmap photo = (Bitmap) data.getExtras().get("data");
+            profilePicture.setImageBitmap(photo);
 
-            Bitmap bitmap=(Bitmap) data.getExtras().get("data");
-            imageUri = getImageUri(bitmap, Bitmap.CompressFormat.JPEG, 80 );
-            profilePicture.setImageURI(imageUri);
+
+           /* Bitmap bitmap=(Bitmap) data.getExtras().get("data");
+            profilePicture.setImageBitmap(bitmap);*/
+            /*imageUri = getImageUri(bitmap, Bitmap.CompressFormat.JPEG, 80 );
+            profilePicture.setImageURI(imageUri);*/
 
         }
     }
