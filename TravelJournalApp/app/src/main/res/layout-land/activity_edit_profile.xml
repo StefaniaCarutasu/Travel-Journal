@@ -27,19 +27,33 @@
             android:layout_marginTop="0dip"
             app:srcCompat="@drawable/com_facebook_profile_picture_blank_portrait" />
 
-        <Button
-            android:id="@+id/import_profile_picture"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="@color/colorAccent"
-            android:text="@string/btn_import_picture"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/bio"
-            tools:layout_editor_absoluteX="148dp"
-            tools:layout_editor_absoluteY="283dp" />
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/import_profile_picture"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:background="@color/colorAccent"
+                android:text="@string/btn_import_picture"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="50dp"/>
+
+            <Button
+                android:id="@+id/take_profile_picture"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:background="@color/colorAccent"
+                android:text="@string/btn_take_picture"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="50dp"/>
+
+        </RelativeLayout>
+
+
 
         <RelativeLayout
             android:layout_width="wrap_content"
