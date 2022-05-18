@@ -29,6 +29,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     private Button logout;
     private Button toEdit;
+    private Button share;
 
     private FirebaseUser currentUser;
 
@@ -46,6 +47,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         logout = (Button) findViewById(R.id.logout);
         toEdit = (Button) findViewById(R.id.toEdit);
+        share = (Button) findViewById(R.id.share);
 
         toEdit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,6 +65,8 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
+
+
         mAuth = FirebaseAuth.getInstance();
 
         currentUser = mAuth.getCurrentUser();
@@ -78,8 +82,6 @@ public class ProfileActivity extends AppCompatActivity {
 
         TextView usernameToDisplay = (TextView) findViewById(R.id.username_displayed);
         TextView infoToDisplay = (TextView) findViewById(R.id.bio_displayed);
-
-        //getData();
 
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -126,35 +128,28 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
-    }
-
-    private void getData() {
-        TextView usernameToDisplay = (TextView) findViewById(R.id.username_displayed);
-        databaseReference.addValueEventListener(new ValueEventListener() {
+        share.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                // this method is call to get the realtime
-                // updates in the data.
-                // this method is called when the data is
-                // changed in our Firebase console.
-                // below line is for getting the data from
-                // snapshot of our database.
-                System.out.println("GET DATA");
-                System.out.println(String.valueOf(snapshot.getChildren()));
-                //String value = snapshot.getValue(String.class);
+            public void onClick(View v) {
+                // Now share text only function will be called
+                // here we  will be passing the text to share
+                String shareBody = String.format("Hi! I'm %s and I'm using Travel Journal App!", usernameToDisplay.getText().toString());
+                // The value which we will sending through data via
+                // other applications is defined
+                // via the Intent.ACTION_SEND
+                Intent intent = new Intent(Intent.ACTION_SEND);
 
-                // after getting the value we are setting
-                // our value to our text view in below line.
-                //usernameToDisplay.setText(value);
-            }
+                // setting type of data shared as text
+                intent.setType("text/plain");
+                intent.putExtra(Intent.EXTRA_SUBJECT, "Subject Here");
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                // calling on cancelled method when we receive
-                // any error or we are not able to get the data.
-                Toast.makeText(ProfileActivity.this, "Fail to get data.", Toast.LENGTH_SHORT).show();
+                // Adding the text to share using putExtra
+                intent.putExtra(Intent.EXTRA_TEXT, shareBody);
+                startActivity(Intent.createChooser(intent, "Share Via"));
             }
         });
+
     }
+
 
 }
