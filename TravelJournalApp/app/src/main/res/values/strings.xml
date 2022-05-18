@@ -29,6 +29,9 @@
     <string name="old_username">New username</string>
     <string name="old_bio">New bio</string>
     <string name="btn_cancel">Cancel</string>
+    <string name="add_marker">Add Marker</string>
+    <string name="add_overlay">Add Overlay</string>
+    <string name="add_detail_activity">Add detail activity</string>
     <string name="Share">Share</string>
     <string name="btn_import_picture">Choose new profile picture</string>
 
