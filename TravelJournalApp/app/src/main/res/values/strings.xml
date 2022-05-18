@@ -30,6 +30,7 @@
     <string name="old_bio">New bio</string>
     <string name="btn_cancel">Cancel</string>
     <string name="Share">Share</string>
+    <string name="btn_import_picture">Choose new profile picture</string>
 
 
     <!--    <string name="default_web_client_id">268174943807–5qdf4itjoidar6p94vp0s6sgnhij2bp5.apps.googleusercontent.com</string>-->

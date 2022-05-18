@@ -74,7 +74,6 @@ public class RegisterActivity extends AppCompatActivity {
 
         // Get Firebase instances
         mAuth = FirebaseAuth.getInstance();
-        System.out.println("onCreate");
 
         // if it's already logged in, redirect to signed in screen
         if (mAuth.getCurrentUser() != null) {

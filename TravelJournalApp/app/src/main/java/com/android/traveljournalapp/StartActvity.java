@@ -12,7 +12,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class StartActvity extends AppCompatActivity {
+
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +44,14 @@ public class StartActvity extends AppCompatActivity {
                 }
 
         });
+
+        mAuth = FirebaseAuth.getInstance();
+
+        // if it's already logged in, redirect to signed in screen
+        if (mAuth.getCurrentUser() != null) {
+            startActivity(new Intent(this, ProfileActivity.class));
+            finish();
+        }
     }
 
 

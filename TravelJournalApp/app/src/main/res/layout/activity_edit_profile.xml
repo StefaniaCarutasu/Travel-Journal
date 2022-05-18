@@ -21,7 +21,7 @@
 
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/profile_picture"
             android:layout_width="424dp"
             android:layout_height="136dp"
             android:layout_marginTop="30dip"
@@ -66,16 +66,30 @@
             android:textColorHint="@android:color/black" />
 
         <Button
+            android:id="@+id/import_profile_picture"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:background="@color/colorAccent"
+            android:text="@string/btn_import_picture"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bio"
+            tools:layout_editor_absoluteX="148dp"
+            tools:layout_editor_absoluteY="283dp" />
+
+        <Button
             android:id="@+id/submit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="70dp"
             android:background="@color/colorAccent"
             android:text="@string/btn_submit_changes"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/bio"
+            app:layout_constraintTop_toBottomOf="@+id/import_profile"
             tools:layout_editor_absoluteX="148dp"
             tools:layout_editor_absoluteY="283dp" />
 

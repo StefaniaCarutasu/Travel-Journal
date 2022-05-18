@@ -8,9 +8,13 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.firebase.ui.storage.images.FirebaseImageLoader;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
@@ -24,6 +28,12 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FileDownloadTask;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+
+import java.io.File;
+import java.time.Instant;
 
 public class ProfileActivity extends AppCompatActivity {
 
@@ -39,6 +49,10 @@ public class ProfileActivity extends AppCompatActivity {
 
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference databaseReference;
+    private FirebaseStorage firebaseStorage;
+    private StorageReference storageReference;
+
+    private ImageView profilePicture;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +62,8 @@ public class ProfileActivity extends AppCompatActivity {
         logout = (Button) findViewById(R.id.logout);
         toEdit = (Button) findViewById(R.id.toEdit);
         share = (Button) findViewById(R.id.share);
+
+        profilePicture = (ImageView) findViewById(R.id.profile_picture);
 
         toEdit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,8 +89,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         userID = currentUser.getUid();
 
-        firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReference("Users/" + userID);
+        uploadProfilePicture();
 
 
         final TextView userName = (TextView) findViewById(R.id.username);
@@ -148,6 +163,24 @@ public class ProfileActivity extends AppCompatActivity {
                 startActivity(Intent.createChooser(intent, "Share Via"));
             }
         });
+
+        uploadProfilePicture();
+
+    }
+
+    private void uploadProfilePicture() {
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference("Users/" + userID);
+
+        String filename = currentUser.getUid();
+        // storageReference = FirebaseStorage.getInstance().getReference("profile_pictures/" + filename);
+
+        storageReference = FirebaseStorage
+                .getInstance().getReference().child("profile_pictures/" + filename);
+
+        Glide.with(this)
+                .load(storageReference)
+                .into(profilePicture);
 
     }
 
