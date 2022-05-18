@@ -4,6 +4,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -14,6 +18,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.firebase.ui.storage.images.FirebaseImageLoader;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -31,6 +36,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FileDownloadTask;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.squareup.picasso.Picasso;
 
 import java.io.File;
 import java.time.Instant;
@@ -173,14 +179,42 @@ public class ProfileActivity extends AppCompatActivity {
         databaseReference = firebaseDatabase.getReference("Users/" + userID);
 
         String filename = currentUser.getUid();
-        // storageReference = FirebaseStorage.getInstance().getReference("profile_pictures/" + filename);
 
-        storageReference = FirebaseStorage
-                .getInstance().getReference().child("profile_pictures/" + filename);
+        storageReference = FirebaseStorage.getInstance().getReference();
+        StorageReference photoReference = storageReference.child("profile_pictures/" + filename);
 
-        Glide.with(this)
-                .load(storageReference)
-                .into(profilePicture);
+        photoReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                Glide.with(getApplicationContext()).load(uri.toString()).into(profilePicture);
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+                // Handle any errors
+            }
+        });
+
+        /*storageReference = FirebaseStorage.getInstance().getReference();
+        StorageReference photoReference = storageReference.child("profile_pictures/" + filename);
+
+        System.out.println("AICI" + photoReference.toString());
+
+        final long ONE_MEGABYTE = 1024 * 1024;
+        photoReference.getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
+            @Override
+            public void onSuccess(byte[] bytes) {
+                Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+                profilePicture.setImageBitmap(bmp);
+
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+                Toast.makeText(getApplicationContext(), "No Such file or Path found!!", Toast.LENGTH_LONG).show();
+            }
+        });*/
+
 
     }
 
