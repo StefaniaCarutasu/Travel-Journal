@@ -194,28 +194,10 @@ public class ProfileActivity extends AppCompatActivity {
                 // Handle any errors
             }
         });
+    }
 
-        /*storageReference = FirebaseStorage.getInstance().getReference();
-        StorageReference photoReference = storageReference.child("profile_pictures/" + filename);
-
-        System.out.println("AICI" + photoReference.toString());
-
-        final long ONE_MEGABYTE = 1024 * 1024;
-        photoReference.getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
-            @Override
-            public void onSuccess(byte[] bytes) {
-                Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-                profilePicture.setImageBitmap(bmp);
-
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception exception) {
-                Toast.makeText(getApplicationContext(), "No Such file or Path found!!", Toast.LENGTH_LONG).show();
-            }
-        });*/
-
-
+    private void captureImage() {
+        
     }
 
 

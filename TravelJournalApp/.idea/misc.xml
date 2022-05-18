@@ -20,12 +20,13 @@
         <entry key="..\:/Facultate/Anul 3/Semestrul 2/Android/TravelJournalApp/app/src/main/res/layout/list_item.xml" value="0.12952898550724637" />
         <entry key="..\:/Facultate/Anul 3/Semestrul 2/Android/TravelJournalApp/app/src/main/res/menu/bottom_nav_menu.xml" value="0.175" />
         <entry key="..\:/Facultate/Anul 3/Semestrul 2/Android/TravelJournalApp/app/src/main/res/menu/search_menu.xml" value="0.1" />
+        <entry key="..\:/transfer/Facultate/Travel-Journal/TravelJournalApp/app/src/main/res/layout-land/activity_edit_profile.xml" value="0.21957671957671956" />
+        <entry key="..\:/transfer/Facultate/Travel-Journal/TravelJournalApp/app/src/main/res/layout-land/activity_profile.xml" value="0.264" />
         <entry key="..\:/transfer/Facultate/Travel-Journal/TravelJournalApp/app/src/main/res/layout/activity_edit_profile.xml" value="0.264" />
         <entry key="..\:/transfer/Facultate/Travel-Journal/TravelJournalApp/app/src/main/res/layout/activity_home.xml" value="0.12613981762917933" />
         <entry key="..\:/transfer/Facultate/Travel-Journal/TravelJournalApp/app/src/main/res/layout/activity_login.xml" value="0.22142857142857142" />
         <entry key="..\:/transfer/Facultate/Travel-Journal/TravelJournalApp/app/src/main/res/layout/activity_main.xml" value="0.259375" />
         <entry key="..\:/transfer/Facultate/Travel-Journal/TravelJournalApp/app/src/main/res/layout/activity_profile.xml" value="0.1" />
-        <entry key="..\:/transfer/Facultate/Travel-Journal/TravelJournalApp/app/src/main/res/layout/activity_profile.xml" value="0.264" />
         <entry key="..\:/transfer/Facultate/Travel-Journal/TravelJournalApp/app/src/main/res/layout/activity_register.xml" value="0.2" />
         <entry key="..\:/transfer/Facultate/Travel-Journal/TravelJournalApp/app/src/main/res/layout/activity_signedin.xml" value="0.1" />
         <entry key="..\:/transfer/Facultate/Travel-Journal/TravelJournalApp/app/src/main/res/layout/activity_start.xml" value="0.12613981762917933" />
@@ -38,5 +39,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.1" />
+      </ProjectState>
+    </option>
   </component>
 </project>
