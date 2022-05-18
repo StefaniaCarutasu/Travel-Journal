@@ -4,11 +4,14 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Facultate/Anul 3/Semestrul 2/Android/TravelJournalApp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.128" />
+        <entry key="..\:/Facultate/Anul 3/Semestrul 2/Android/TravelJournalApp/app/src/main/res/drawable/customborder.xml" value="0.1" />
         <entry key="..\:/Facultate/Anul 3/Semestrul 2/Android/TravelJournalApp/app/src/main/res/drawable/selector.xml" value="0.1295" />
         <entry key="..\:/Facultate/Anul 3/Semestrul 2/Android/TravelJournalApp/app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="..\:/Facultate/Anul 3/Semestrul 2/Android/TravelJournalApp/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Facultate/Anul 3/Semestrul 2/Android/TravelJournalApp/app/src/main/res/layout/activity_map.xml" value="0.1" />
         <entry key="..\:/Facultate/Anul 3/Semestrul 2/Android/TravelJournalApp/app/src/main/res/layout/activity_maps.xml" value="0.1" />
+        <entry key="..\:/Facultate/Anul 3/Semestrul 2/Android/TravelJournalApp/app/src/main/res/layout/activity_marker.xml" value="0.1" />
+        <entry key="..\:/Facultate/Anul 3/Semestrul 2/Android/TravelJournalApp/app/src/main/res/layout/activity_overlay.xml" value="0.1796875" />
         <entry key="..\:/Facultate/Anul 3/Semestrul 2/Android/TravelJournalApp/app/src/main/res/layout/activity_profile.xml" value="0.1490036231884058" />
         <entry key="..\:/Facultate/Anul 3/Semestrul 2/Android/TravelJournalApp/app/src/main/res/layout/activity_register.xml" value="0.1526268115942029" />
         <entry key="..\:/Facultate/Anul 3/Semestrul 2/Android/TravelJournalApp/app/src/main/res/layout/activity_show_map.xml" value="0.1" />
@@ -16,16 +19,12 @@
         <entry key="..\:/Facultate/Anul 3/Semestrul 2/Android/TravelJournalApp/app/src/main/res/layout/activity_travel_items.xml" value="0.1" />
         <entry key="..\:/Facultate/Anul 3/Semestrul 2/Android/TravelJournalApp/app/src/main/res/layout/list_item.xml" value="0.12952898550724637" />
         <entry key="..\:/Facultate/Anul 3/Semestrul 2/Android/TravelJournalApp/app/src/main/res/menu/bottom_nav_menu.xml" value="0.175" />
-        <entry key="..\:/transfer/Facultate/Travel-Journal/TravelJournalApp/app/src/main/res/drawable/ic_home_foreground.xml" value="0.2495" />
-        <entry key="..\:/transfer/Facultate/Travel-Journal/TravelJournalApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2495" />
-        <entry key="..\:/transfer/Facultate/Travel-Journal/TravelJournalApp/app/src/main/res/drawable/ic_map_foreground.xml" value="0.2495" />
-        <entry key="..\:/transfer/Facultate/Travel-Journal/TravelJournalApp/app/src/main/res/drawable/ic_profile_foreground.xml" value="0.2495" />
-        <entry key="..\:/transfer/Facultate/Travel-Journal/TravelJournalApp/app/src/main/res/drawable/ic_static_ic_notification.xml" value="0.2495" />
-        <entry key="..\:/transfer/Facultate/Travel-Journal/TravelJournalApp/app/src/main/res/layout/activity_edit_profile.xml" value="0.19291338582677164" />
+        <entry key="..\:/Facultate/Anul 3/Semestrul 2/Android/TravelJournalApp/app/src/main/res/menu/search_menu.xml" value="0.1" />
+        <entry key="..\:/transfer/Facultate/Travel-Journal/TravelJournalApp/app/src/main/res/layout/activity_edit_profile.xml" value="0.264" />
         <entry key="..\:/transfer/Facultate/Travel-Journal/TravelJournalApp/app/src/main/res/layout/activity_home.xml" value="0.12613981762917933" />
         <entry key="..\:/transfer/Facultate/Travel-Journal/TravelJournalApp/app/src/main/res/layout/activity_login.xml" value="0.22142857142857142" />
         <entry key="..\:/transfer/Facultate/Travel-Journal/TravelJournalApp/app/src/main/res/layout/activity_main.xml" value="0.259375" />
-        <entry key="..\:/transfer/Facultate/Travel-Journal/TravelJournalApp/app/src/main/res/layout/activity_profile.xml" value="0.18518518518518517" />
+        <entry key="..\:/transfer/Facultate/Travel-Journal/TravelJournalApp/app/src/main/res/layout/activity_profile.xml" value="0.1" />
         <entry key="..\:/transfer/Facultate/Travel-Journal/TravelJournalApp/app/src/main/res/layout/activity_register.xml" value="0.2" />
         <entry key="..\:/transfer/Facultate/Travel-Journal/TravelJournalApp/app/src/main/res/layout/activity_signedin.xml" value="0.1" />
         <entry key="..\:/transfer/Facultate/Travel-Journal/TravelJournalApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2645" />

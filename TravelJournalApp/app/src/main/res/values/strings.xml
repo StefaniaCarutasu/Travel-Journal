@@ -29,6 +29,9 @@
     <string name="old_username">%s</string>
     <string name="old_bio">%s</string>
     <string name="btn_cancel">Cancel</string>
+    <string name="add_marker">Add Marker</string>
+    <string name="add_overlay">Add Overlay</string>
+    <string name="add_detail_activity">Add detail activity</string>
 
 
     <!--    <string name="default_web_client_id">268174943807–5qdf4itjoidar6p94vp0s6sgnhij2bp5.apps.googleusercontent.com</string>-->
